@@ -1,0 +1,69 @@
+@use "./breakpoints.scss" as breakpoints;
+
+.footer {
+  width: 100%;
+}
+
+.socials {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.socialLink {
+  height: 36px;
+  width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 999px;
+  background: var(--neutral-alpha-weak);
+  color: var(--neutral-on-background-strong);
+  text-decoration: none;
+  transition: width 260ms ease, transform 260ms ease, border-color 260ms ease, background 260ms ease;
+}
+
+.socialLink:hover {
+  width: 132px;
+  transform: scale(1.08);
+  border-color: var(--brand-alpha-medium);
+  background: var(--brand-alpha-weak);
+}
+
+.socialIcon {
+  width: 34px;
+  min-width: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 260ms ease;
+}
+
+.socialLink:hover .socialIcon {
+  transform: scale(1.15);
+}
+
+.socialText {
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 220ms ease, transform 260ms ease;
+}
+
+.socialLink:hover .socialText {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+@media (max-width: breakpoints.$s) {
+  .footer {
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
