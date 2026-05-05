@@ -2,7 +2,7 @@
 
 **1. Clone the repository**
 ```
-git clone https://github.com/once-ui-system/magic-portfolio.git
+https://github.com/santiivlog/Portafolio-Santiivlog.git
 ```
 
 **2. Install dependencies**
