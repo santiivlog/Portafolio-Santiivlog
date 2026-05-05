@@ -32,7 +32,7 @@ const categories: Array<{
         category: "Fabric",
         text: "Mod privado que recrea la mecanica de Warzone Call of Duty. Agrega blindaje que da vida extra al jugador.",
         tools: ["Java", "Fabric API", "1.21.1", "Privado"],
-        video: "/videos/mods/blindaje-1.21.mp4",
+        video: "https://cdn.discordapp.com/attachments/1485112660704890971/1490013366519861289/20260404-1539-44.9774057.mp4?ex=69fb6115&is=69fa0f95&hm=90048e6b315a47af75db682ba465ed3608b1566ca0f66330d626382b386ed033&",
         status: "Mod privado",
       },
       {
@@ -40,7 +40,7 @@ const categories: Array<{
         category: "Fabric",
         text: "Porteo a 1.21.1 Fabric. Lleva la inmersion de tu servidor, mapa de aventuras o serie de Roleplay al siguiente nivel. Luxfiro Subtitles es un mod de interfaz que permite mostrar subtitulos, dialogos y anuncios en pantalla con personalizacion masiva: textos cinematograficos, estilos tipo Undertale, anuncios gigantes de Roleplay, animaciones, colores, tamanos personalizados y soporte Text-To-Speech integrado.",
         tools: ["Fabric", "1.21.1", "GUI", "Publico"],
-        video: "/videos/mods/subtitle-1.21.mp4",
+        video: "https://cdn.discordapp.com/attachments/1485112660704890971/1490012845969248449/20260404-1537-54.7090409.mp4?ex=69fb6099&is=69fa0f19&hm=214c152007390012bf702488de1fa40e2dd061fc7f7bbefc6b551df77aac092e&",
         status: "Mod publico",
         links: [
           {
@@ -55,7 +55,7 @@ const categories: Array<{
         category: "Fabric",
         text: "Mod privado que recrea el famoso Revive Player. Usa Animorph como dependencia para las animaciones.",
         tools: ["Java", "Fabric", "1.21.1", "Animorph", "Mod privado"],
-        video: "/videos/mods/revive-1.21.mp4",
+        video: "https://cdn.discordapp.com/attachments/1485112660704890971/1490013770519543889/Video_Project_4.mp4?ex=69fb6176&is=69fa0ff6&hm=16b0980401801c55f55bd7aacf815b5737de8c7a6a5c9b0309d2ec16442e8d9a&",
         status: "Mod privado",
       },
       {
@@ -88,7 +88,7 @@ const categories: Array<{
         category: "Forge",
         text: "Mod que te avisa si un jugador esta en otra pantalla. Util para muchas cosas.",
         tools: ["Forge", "1.20.1", "Comision", "Privado"],
-        video: "/videos/mods/dectetor-1.20.1.mp4",
+        video: "https://cdn.discordapp.com/attachments/1485112660704890971/1490016373802274916/20260404-1552-02.2997309.mp4?ex=69fb63e2&is=69fa1262&hm=3ca4ee26d2eb5184c74915b2847735d50809fae8c1e6c3897d2ea3a33a22565c&",
         status: "Mod privado",
       },
       {
@@ -96,7 +96,7 @@ const categories: Array<{
         category: "Forge",
         text: "Este mod es uno de mis favoritos y algun dia lo continuare si tengo tiempo. Recrea el famoso juego de la Serpiente en Minecraft.",
         tools: ["Forge", "1.20.1", "Minigame", "Privado"],
-        video: "/videos/mods/minigames-1.20.1.mp4",
+        video: "https://cdn.discordapp.com/attachments/1485112660704890971/1490017538581467460/20260404-1555-43.4483228.mp4?ex=69fb64f8&is=69fa1378&hm=db85934652660f9032854db785a38b0c58d6a39622880dc571e5e6b21ef32e9b&",
         status: "Mod privado",
       },
     ],

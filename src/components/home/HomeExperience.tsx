@@ -32,11 +32,11 @@ const featuredProjects: FeaturedProject[] = [
     videos: [
       {
         label: "1.21.1 Fabric",
-        src: "/videos/mods/svvideo-1.21.1.mp4",
+        src: "https://cdn.discordapp.com/attachments/1483699411732402239/1499621663803834458/20260501-0357-21.1212392.mp4?ex=69fb65c2&is=69fa1442&hm=cbffcba1c71497b8fb4bb15e21b23ed48239ae19d61460177fb6f9f5311ac10b&",
       },
       {
         label: "1.20.1 Forge",
-        src: "/videos/mods/svvideo-1.20.1.mp4",
+        src: "https://cdn.discordapp.com/attachments/1483699411732402239/1500292188502888498/20260503-0022-58.4080406.mp4?ex=69fb333b&is=69f9e1bb&hm=8f0911f86bc308d3139c6be5c7caf183c0d88ba958b8e7937142d1b18cb32f6e&",
       },
     ],
     links: [
@@ -55,7 +55,7 @@ const featuredProjects: FeaturedProject[] = [
     videos: [
       {
         label: "Conditions Mod",
-        src: "/videos/mods/Conditionsmod.mp4",
+        src: "https://cdn.discordapp.com/attachments/1483699411732402239/1495392612780343468/Video_Project_8.mp4?ex=69fb2c65&is=69f9dae5&hm=b33e573ff7debaffb4e1e99c53fb1315c6e0af085b96c5be4b2a428ba954ed12&",
       },
     ],
     links: [
