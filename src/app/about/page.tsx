@@ -14,6 +14,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
+import { TagIcon } from "@/components/about/TagIcon";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
@@ -25,6 +26,21 @@ const languageIcons: Record<string, string> = {
   "Node.js": "nodejs",
   Lua: "lua",
 };
+
+const aboutStats = [
+  {
+    value: "8+ meses",
+    label: "Experiencia",
+  },
+  {
+    value: "17 años",
+    label: "Edad",
+  },
+  {
+    value: "4+",
+    label: "Studios",
+  },
+];
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -102,7 +118,9 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <div className={styles.aboutAvatarReveal}>
+              <Avatar src={person.avatar} size="xl" />
+            </div>
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -206,9 +224,19 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              {about.intro.description}
-            </Column>
+            <>
+              <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="m">
+                {about.intro.description}
+              </Column>
+              <div className={styles.aboutStats} aria-label="Resumen de Santiago">
+                {aboutStats.map((stat) => (
+                  <div className={styles.aboutStat} key={stat.label}>
+                    <strong>{stat.value}</strong>
+                    <span>{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
 
           {about.work.display && (
@@ -278,13 +306,11 @@ export default function About() {
               <Row fillWidth gap="12" wrap marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} gap="8">
-                    <Tag
+                    <TagIcon
                       id={institution.name}
-                      size="l"
-                      prefixIcon={languageIcons[institution.name]}
-                    >
-                      {institution.name}
-                    </Tag>
+                      name={institution.name}
+                      icon={languageIcons[institution.name]}
+                    />
                     <Text variant="body-default-xs" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
@@ -316,9 +342,7 @@ export default function About() {
                     {skill.tags && skill.tags.length > 0 && (
                       <Row wrap gap="8" paddingTop="8">
                         {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
+                          <TagIcon key={`${skill.title}-${tagIndex}`} name={tag.name} icon={tag.icon} />
                         ))}
                       </Row>
                     )}

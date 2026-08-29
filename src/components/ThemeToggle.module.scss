@@ -1,10 +1,295 @@
-.button {
-  display: flex;
+.switcher {
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  
-  svg {
-    width: 1em;
-    height: 1em;
+  isolation: isolate;
+}
+
+.islandTrigger {
+  height: 38px;
+  min-width: 128px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 6px 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(5, 8, 12, 0.94);
+  color: #f8fbff;
+  cursor: pointer;
+  font: inherit;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(20px);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    width 220ms ease;
+}
+
+.switcherOpen .islandTrigger,
+.islandTrigger:hover {
+  transform: translateY(-1px);
+  border-color: rgba(120, 209, 255, 0.44);
+  box-shadow:
+    0 22px 54px rgba(0, 39, 78, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.triggerIcon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(120, 209, 255, 0.16);
+  color: #9bdcff;
+}
+
+.triggerLabel {
+  max-width: 72px;
+  overflow: hidden;
+  color: #f8fbff;
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.languagePill {
+  min-width: 34px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f8fbff;
+  color: #05080c;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.92);
+  transform-origin: top right;
+  transition:
+    opacity 170ms ease,
+    transform 220ms cubic-bezier(0.18, 0.9, 0.22, 1);
+}
+
+.panel[data-open="true"] {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.panelInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(5, 8, 12, 0.96);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(22px);
+}
+
+.optionGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.panelDivider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.option {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(248, 251, 255, 0.72);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.option:hover {
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.optionActive {
+  background: #f8fbff;
+  color: #05080c;
+}
+
+.musicGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.musicButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(120, 209, 255, 0.16);
+  color: #9bdcff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.musicButton:hover {
+  transform: translateY(-1px);
+  background: rgba(120, 209, 255, 0.28);
+  color: #ffffff;
+}
+
+.musicButtonLabel {
+  line-height: 1;
+}
+
+.musicIconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(120, 209, 255, 0.16);
+  color: #9bdcff;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.musicIconButton:hover {
+  transform: translateY(-1px);
+  background: rgba(120, 209, 255, 0.28);
+  color: #ffffff;
+}
+
+.musicIconButton[data-muted="true"] {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(248, 251, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .islandTrigger {
+    min-width: 96px;
+  }
+
+  .triggerLabel {
+    display: none;
+  }
+
+  .panel {
+    top: auto;
+    right: 50%;
+    bottom: calc(100% + 10px);
+    transform: translate(50%, 10px) scale(0.92);
+    transform-origin: bottom center;
+  }
+
+  .panel[data-open="true"] {
+    transform: translate(50%, 0) scale(1);
+  }
+
+  .panelInner {
+    align-items: stretch;
+    flex-direction: column;
+    border-radius: 24px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .panelDivider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .optionGroup {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .option {
+    padding: 0 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 420px) {
+  .islandTrigger {
+    min-width: 72px;
+    height: 36px;
+    gap: 6px;
+    padding: 4px;
+  }
+
+  .triggerIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .languagePill {
+    min-width: 31px;
+    height: 26px;
+    font-size: 10px;
+  }
+
+  .panelInner {
+    padding: 5px;
+  }
+
+  .option {
+    min-height: 28px;
+    padding: 0 9px;
   }
 }

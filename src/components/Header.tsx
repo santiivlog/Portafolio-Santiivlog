@@ -47,8 +47,16 @@ export const Header = () => {
 
   return (
     <>
-      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
       <Fade
+        className={styles.topFade}
+        s={{ hide: true }}
+        fillWidth
+        position="fixed"
+        height="80"
+        zIndex={9}
+      />
+      <Fade
+        className={styles.bottomFade}
         hide
         s={{ hide: false }}
         fillWidth
@@ -73,7 +81,11 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          {display.location && (
+            <Row className={styles.locationPill} s={{ hide: true }}>
+              {person.location}
+            </Row>
+          )}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -184,7 +196,11 @@ export const Header = () => {
             gap="20"
           >
             <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
+              {display.time && (
+                <Row className={styles.locationPill}>
+                  <TimeDisplay timeZone={person.location} />
+                </Row>
+              )}
             </Flex>
           </Flex>
         </Flex>

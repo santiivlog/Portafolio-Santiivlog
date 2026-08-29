@@ -53,7 +53,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/api/og/generate",
   label: "Inicio",
   title: "Portafolio-Santiivlog",
   description: `Portafolio de ${person.name}, ${person.role}`,
@@ -103,8 +103,9 @@ const about: About = {
     title: "Información",
     description: (
       <>
-        Soy desarrollador de mods en Minecraft y bots de Discord. Tengo 6 meses de experiencia
-        como desarrollador de mods, bots de Discord y páginas web.
+        Desarrollador especializado en Forge, Fabric, Webs y DiscordBots. Tengo 8+ meses de
+        experiencia creando mods de Minecraft, herramientas para eventos, paginas web y bots de
+        Discord.
       </>
     ),
   },
@@ -115,10 +116,10 @@ const about: About = {
       {
         company: "Comunidades y comisiones",
         timeframe: "2025 - Presente",
-        role: "Desarrollador de mods, bots y páginas web",
+        role: "Desarrollador de Forge, Fabric, webs y DiscordBots",
         achievements: [
-          <>He trabajado en varias comunidades y también en comisiones.</>,
-          <>Hice varios bots de Discord y mods para muchas personas.</>,
+          <>Trabajo en mods para Forge y Fabric, webs, bots de Discord y herramientas privadas para eventos.</>,
+          <>Tengo 8+ meses de experiencia, 17 años y colaboraciones con 4+ studios o comunidades.</>,
         ],
         images: [],
       },

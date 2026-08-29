@@ -1,0 +1,44 @@
+:root {
+  --argentina-ink: #061829;
+  --argentina-deep: #08243f;
+  --argentina-sky: #6ec6ff;
+  --argentina-sky-strong: #39a9e7;
+  --argentina-white: #f6fbff;
+  --argentina-gold: #f6c453;
+}
+
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html[data-portfolio-theme="world"] {
+  --page-background: #eef9ff;
+  --neutral-on-background-strong: #061829;
+  --neutral-on-background-medium: rgba(6, 24, 41, 0.78);
+  --neutral-on-background-weak: rgba(6, 24, 41, 0.58);
+  --neutral-alpha-weak: rgba(57, 169, 231, 0.14);
+  --neutral-alpha-medium: rgba(57, 169, 231, 0.26);
+  --brand-alpha-weak: rgba(110, 198, 255, 0.18);
+  --brand-alpha-medium: rgba(57, 169, 231, 0.42);
+  --brand-on-background-medium: #0b6fa9;
+}
+
+html[data-portfolio-theme="world"] body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 8%, rgba(110, 198, 255, 0.46), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(246, 196, 83, 0.18), transparent 24%),
+    linear-gradient(180deg, #f6fbff 0%, #dff6ff 42%, #eef9ff 100%);
+}
+
+::selection {
+  background: rgba(246, 196, 83, 0.48);
+  color: #061829;
+}

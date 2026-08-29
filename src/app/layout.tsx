@@ -91,6 +91,12 @@ export default async function RootLayout({
                       root.setAttribute('data-' + key, value);
                     }
                   });
+
+                  const portfolioMode = localStorage.getItem('portfolio-mode') || 'world';
+                  const portfolioLanguage = localStorage.getItem('portfolio-language') || 'es';
+                  root.setAttribute('data-portfolio-mode', portfolioMode);
+                  root.setAttribute('data-portfolio-theme', portfolioMode === 'world' ? 'world' : 'classic');
+                  root.setAttribute('data-language', portfolioLanguage);
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
                   document.documentElement.setAttribute('data-theme', 'dark');
