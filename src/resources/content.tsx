@@ -1,12 +1,11 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
-import { Line, Row, Text } from "@once-ui-system/core";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 
 const person: Person = {
   firstName: "Santiago",
   lastName: "",
   name: "Santiago",
   role: "Desarrollador",
-  avatar: "/images/profile/profile.jpg",
+  avatar: "/images/profile/logo.gif",
   email: "santiagomendozacordero@gmail.com",
   location: "America/Buenos_Aires",
   languages: ["Español"],
@@ -59,25 +58,13 @@ const home: Home = {
   description: `Portafolio de ${person.name}, ${person.role}`,
   headline: <>Creando mods, bots y experiencias web</>,
   featured: {
-    display: true,
-    title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Santiago</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Proyecto destacado
-        </Text>
-      </Row>
-    ),
+    display: false,
+    title: <>Proyecto destacado</>,
     href: "/work/building-once-ui-a-customizable-design-system",
   },
   subline: (
     <>
-      Soy Santiago, desarrollador de{" "}
-      <Text as="span" size="xl" weight="strong">
-        mods de Minecraft
-      </Text>
-      , bots de Discord y páginas web.
+      Soy Santiago, desarrollador de mods de Minecraft, bots de Discord y páginas web.
     </>
   ),
 };
@@ -103,14 +90,14 @@ const about: About = {
     title: "Información",
     description: (
       <>
-        Desarrollador especializado en Forge, Fabric, Webs y DiscordBots. Tengo 8+ meses de
-        experiencia creando mods de Minecraft, herramientas para eventos, paginas web y bots de
-        Discord.
+        Soy un chico de 17 años que le encanta los códigos, es mi mayor pasión. Durante el tiempo
+        que llevo programando aprendí muchas cosas con varios devs y les agradezco mucho por
+        ayudarme a mejorar. Cada día mejoro un poco.
       </>
     ),
   },
   work: {
-    display: true,
+    display: false,
     title: "Experiencia",
     experiences: [
       {
@@ -118,63 +105,61 @@ const about: About = {
         timeframe: "2025 - Presente",
         role: "Desarrollador de Forge, Fabric, webs y DiscordBots",
         achievements: [
-          <>Trabajo en mods para Forge y Fabric, webs, bots de Discord y herramientas privadas para eventos.</>,
-          <>Tengo 8+ meses de experiencia, 17 años y colaboraciones con 4+ studios o comunidades.</>,
+          "Trabajo en mods para Forge y Fabric, webs, bots de Discord y herramientas privadas para eventos.",
+          "Tengo 8+ meses de experiencia, 17 años y colaboraciones con 4+ studios o comunidades.",
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true,
+    display: false,
     title: "Lenguajes",
-    institutions: [
-      {
-        name: "Java",
-        description: <>Intermedio avanzado</>,
-      },
-      {
-        name: "HTML",
-        description: <>Intermedio</>,
-      },
-      {
-        name: "CSS",
-        description: <>Intermedio</>,
-      },
-      {
-        name: "Python",
-        description: <>Intermedio</>,
-      },
-      {
-        name: "Node.js",
-        description: <>Intermedio avanzado</>,
-      },
-      {
-        name: "Lua",
-        description: <>Aprendiz</>,
-      },
-    ],
+    institutions: [],
   },
   technical: {
     display: true,
-    title: "Herramientas",
+    title: "Habilidades",
     skills: [
       {
-        title: "Entorno de trabajo",
-        description: <>Herramientas que uso para desarrollar, organizar código y trabajar proyectos.</>,
+        title: "Desarrollo Minecraft",
+        description: <>Plataformas y APIs de modding para Minecraft.</>,
         tags: [
-          {
-            name: "GitHub",
-            icon: "github",
-          },
-          {
-            name: "IntelliJ",
-            icon: "intellij",
-          },
-          {
-            name: "Visual Studio Code",
-            icon: "vscode",
-          },
+          { name: "Fabric", icon: "" },
+          { name: "Forge", icon: "" },
+        ],
+        images: [],
+      },
+      {
+        title: "Lenguajes",
+        description: <>Lenguajes de programación que manejo.</>,
+        tags: [
+          { name: "Java", icon: "" },
+          { name: "Python", icon: "" },
+          { name: "Lua", icon: "" },
+          { name: "GodotScript", icon: "" },
+        ],
+        images: [],
+      },
+      {
+        title: "Desarrollo Web",
+        description: <>Frameworks y herramientas para web.</>,
+        tags: [
+          { name: "Next.js", icon: "" },
+          { name: "Node.js", icon: "" },
+          { name: "CSS", icon: "" },
+          { name: "Tailwind", icon: "" },
+          { name: "HTML", icon: "" },
+        ],
+        images: [],
+      },
+      {
+        title: "Herramientas",
+        description: <>Herramientas que uso para desarrollar y organizar código.</>,
+        tags: [
+          { name: "GitHub", icon: "" },
+          { name: "IntelliJ IDEA", icon: "" },
+          { name: "Visual Studio Code", icon: "" },
         ],
         images: [],
       },
@@ -191,9 +176,9 @@ const blog: Blog = {
 
 const work: Work = {
   path: "/work",
-  label: "Mods - comisiones",
-  title: `Mods y comisiones - ${person.name}`,
-  description: `Mods de Minecraft y comisiones de desarrollo de ${person.name}`,
+  label: "Proyectos",
+  title: `Proyectos - ${person.name}`,
+  description: "Muestra de mi trabajo: algunos proyectos que hice personalmente y comisiones y trabajos para studios o clientes.",
 };
 
 const gallery: Gallery = {
@@ -202,46 +187,14 @@ const gallery: Gallery = {
   title: `Galería - ${person.name}`,
   description: `Una colección de imágenes de ${person.name}`,
   images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
+    { src: "/images/gallery/horizontal-1.jpg", alt: "image", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-4.jpg", alt: "image", orientation: "vertical" },
+    { src: "/images/gallery/horizontal-3.jpg", alt: "image", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-1.jpg", alt: "image", orientation: "vertical" },
+    { src: "/images/gallery/vertical-2.jpg", alt: "image", orientation: "vertical" },
+    { src: "/images/gallery/horizontal-2.jpg", alt: "image", orientation: "horizontal" },
+    { src: "/images/gallery/horizontal-4.jpg", alt: "image", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-3.jpg", alt: "image", orientation: "vertical" },
   ],
 };
 

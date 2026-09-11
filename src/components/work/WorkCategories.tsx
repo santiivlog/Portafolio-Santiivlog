@@ -10,6 +10,8 @@ type WorkItem = {
   text: string;
   tools: string[];
   status: "Mod privado" | "Mod publico" | "Por agregar";
+  image?: string;
+  developer?: string;
   links?: Array<{
     name: string;
     icon: string;
@@ -20,6 +22,7 @@ type WorkItem = {
 const categories: Array<{
   title: string;
   meta: string;
+  display?: boolean;
   items: WorkItem[];
 }> = [
   {
@@ -165,6 +168,22 @@ const categories: Array<{
     ],
   },
   {
+    title: "Videojuegos",
+    meta: "Juego en desarrollo",
+    display: false,
+    items: [
+      {
+        title: "TQQ Beyond Destiny",
+        category: "Videojuego",
+        developer: "strawbzkiss & Santiago",
+        image: "/images/games/tqq-beyond-destiny.png",
+        text: "Fangame de The Quintessential Quintuplets (Go-Toubun no Hanayome). Es un juego de novela visual que estoy desarrollando junto a mi mejor amiga strawbzkiss. El juego sigue el mundo de las quintillizas con una historia original más allá del destino.",
+        tools: ["Godot Engine", "GodotScript", "Visual Novel", "Fangame", "En desarrollo"],
+        status: "Por agregar",
+      },
+    ],
+  },
+  {
     title: "Mods Forge 1.20.1",
     meta: "Comisiones y mods compatibles con Forge",
     items: [
@@ -193,12 +212,18 @@ function WorkCard({ item, onOpen }: { item: WorkItem; onOpen: (item: WorkItem) =
       type="button"
       onClick={() => onOpen(item)}
     >
+      {item.image && (
+        <img className={styles.cardImage} src={item.image} alt={item.title} />
+      )}
       <div className={styles.cardTop}>
         <h3 className={styles.cardTitle}>{item.title}</h3>
         <span className={`${styles.tag} ${item.status === "Por agregar" ? styles.tagPending : ""}`}>
           {item.status}
         </span>
       </div>
+      {item.developer && (
+        <p className={styles.cardDeveloper}>✦ {item.developer}</p>
+      )}
       <p className={styles.cardText}>{item.text}</p>
       <div className={styles.cardFooter}>
         {item.tools.map((tool) => (
@@ -224,14 +249,14 @@ export function WorkCategories() {
   return (
     <main className={styles.workPage}>
       <header className={styles.hero}>
-        <h1 className={styles.title}>Mods y comisiones</h1>
+        <h1 className={styles.title}>Proyectos</h1>
         <p className={styles.subtitle}>
-          Tengo varios mods y no pondre todos, pero puedes ver algunos ejemplos organizados por
-          Fabric y Forge.
+          Muestra de mi trabajo: algunos proyectos que hice personalmente y comisiones y trabajos
+          para studios o clientes.
         </p>
       </header>
 
-      {categories.map((category) => (
+      {categories.filter((c) => c.display !== false).map((category) => (
         <section className={styles.section} key={category.title}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>{category.title}</h2>
@@ -273,11 +298,17 @@ export function WorkCategories() {
                   {selectedItem.category}
                 </span>
                 <h2 className={styles.modalTitle}>{selectedItem.title}</h2>
+                {selectedItem.developer && (
+                  <p className={styles.modalDeveloper}>✦ Desarrollado por {selectedItem.developer}</p>
+                )}
               </div>
               <button className={styles.closeButton} type="button" onClick={() => setSelectedItem(null)}>
                 Cerrar
               </button>
             </div>
+            {selectedItem.image && (
+              <img className={styles.modalImage} src={selectedItem.image} alt={selectedItem.title} />
+            )}
             <p className={styles.cardText}>{selectedItem.text}</p>
             {selectedItem.links && (
               <div className={styles.modalLinks}>

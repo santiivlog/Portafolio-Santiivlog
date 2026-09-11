@@ -109,6 +109,38 @@
   gap: 16px;
 }
 
+.cardImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.cardDeveloper {
+  margin: 0 0 6px;
+  color: var(--brand-on-background-medium);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.modalImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.modalDeveloper {
+  margin: 4px 0 0;
+  color: var(--brand-on-background-medium);
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .cardTitle {
   min-width: 0;
   max-width: 100%;

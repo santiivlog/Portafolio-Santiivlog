@@ -99,6 +99,10 @@
 }
 
 @media (max-width: breakpoints.$s) {
+    .skillsGrid {
+        grid-template-columns: 1fr;
+    }
+
     .textAlign {
         text-align: center;
     }
@@ -125,6 +129,85 @@
         transform: translate(0, -96px) scale(0.48);
         animation-name: aboutAvatarEnterMobile;
     }
+}
+
+.skillsEyebrow {
+    margin-bottom: 8px;
+    color: var(--brand-on-background-medium);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.skillCard {
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: 16px;
+    background: var(--neutral-alpha-weak);
+    cursor: default;
+    transition:
+        transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 240ms ease,
+        background 240ms ease,
+        box-shadow 240ms ease;
+}
+
+.skillCard:hover {
+    transform: scale(1.035);
+    border-color: var(--brand-alpha-medium);
+    background: var(--brand-alpha-weak);
+    box-shadow: 0 8px 32px var(--brand-alpha-weak);
+}
+
+.skillCardTitle {
+    margin: 0 0 16px;
+    color: var(--neutral-on-background-strong);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: color 240ms ease;
+}
+
+.skillCard:hover .skillCardTitle {
+    color: var(--brand-on-background-strong);
+}
+
+.skillTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skillTag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--neutral-on-background-medium);
+    font-size: 13px;
+    font-weight: 500;
+    transition:
+        border-color 240ms ease,
+        background 240ms ease,
+        color 240ms ease;
+}
+
+.skillCard:hover .skillTag {
+    border-color: var(--brand-alpha-strong);
+    background: var(--brand-alpha-weak);
+    color: var(--brand-on-background-medium);
 }
 
 @keyframes aboutAvatarEnterMobile {

@@ -29,7 +29,7 @@ const languageIcons: Record<string, string> = {
 
 const aboutStats = [
   {
-    value: "8+ meses",
+    value: "10+ meses",
     label: "Experiencia",
   },
   {
@@ -127,8 +127,8 @@ export default function About() {
             </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
+                {person.languages.map((language) => (
+                  <Tag key={language} size="l">
                     {language}
                   </Tag>
                 ))}
@@ -273,9 +273,9 @@ export default function About() {
                     </Column>
                     {experience.images && experience.images.length > 0 && (
                       <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
+                        {experience.images.map((image) => (
                           <Row
-                            key={index}
+                            key={image.src}
                             border="neutral-medium"
                             radius="m"
                             minWidth={image.width}
@@ -322,6 +322,7 @@ export default function About() {
 
           {about.technical.display && (
             <>
+              <div className={styles.skillsEyebrow}>SKILLS</div>
               <Heading
                 as="h2"
                 id={about.technical.title}
@@ -330,46 +331,20 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <div className={styles.skillsGrid}>
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <TagIcon key={`${skill.title}-${tagIndex}`} name={tag.name} icon={tag.icon} />
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
+                  <div key={`${skill.title}-${index}`} className={styles.skillCard}>
+                    <h3 className={styles.skillCardTitle}>{skill.title}</h3>
+                    <div className={styles.skillTags}>
+                      {skill.tags?.map((tag, tagIndex) => (
+                        <span key={`${skill.title}-${tagIndex}`} className={styles.skillTag}>
+                          {tag.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 ))}
-              </Column>
+              </div>
             </>
           )}
         </Column>
