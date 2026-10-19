@@ -11,10 +11,10 @@ import {
   SocialSharingConfig,
   StyleConfig,
 } from "@/types";
-import { home } from "./index";
+import { home, person } from "./content";
 
 
-const baseURL: string = "https://demo.magic-portfolio.com";
+const baseURL: string = (process.env.NEXT_PUBLIC_SITE_URL || "https://portafolio-santiivlog.vercel.app").replace(/\/$/, "");
 
 const routes: RoutesConfig = {
   "/": true,
@@ -31,9 +31,7 @@ const display: DisplayConfig = {
 };
 
 
-const protectedRoutes: ProtectedRoutesConfig = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
-};
+const protectedRoutes: ProtectedRoutesConfig = {};
 
 
 import { Geist } from "next/font/google";
@@ -187,16 +185,14 @@ const mailchimp: MailchimpConfig = {
 const schema: SchemaConfig = {
   logo: "",
   type: "Organization",
-  name: "Once UI",
+  name: "SantiagoDev",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: person.email,
 };
 
 
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  discord: "https://discord.gg/sZtsUsacUJ",
 };
 
 

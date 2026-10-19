@@ -1,5 +1,6 @@
 {
-  "name": "@once-ui-system/magic-portfolio",
+  "name": "santiagodev-portfolio",
+  "private": true,
   "version": "2.3.0",
   "scripts": {
     "dev": "next dev",

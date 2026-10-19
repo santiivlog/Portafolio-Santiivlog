@@ -256,6 +256,40 @@ export function WorkCategories() {
         </p>
       </header>
 
+      <section className={styles.section} aria-labelledby="own-projects-title">
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle} id="own-projects-title">Proyectos propios</h2>
+          <span className={styles.sectionMeta}>Ideas que sigo construyendo</span>
+        </div>
+        <div className={styles.projectGrid}>
+          {[
+            {
+              title: "Grip Editor",
+              href: "https://gripeditor.vercel.app",
+              image: "/images/projects/grip-editor.png",
+              text: "Un editor de video que nació como proyecto para un curso y que sigo actualizando. Mi objetivo es ofrecer un editor completamente gratis, con herramientas que suelen ser de pago, para que puedas crear y editar sin tener que pagar por cada función.",
+            },
+            {
+              title: "MultiPanel",
+              href: "https://panelvyx.vercel.app/#comunidad",
+              image: "/images/projects/multipanel.png",
+              text: "Creé MultiPanel para que mis clientes puedan configurar y administrar sus bots de Discord de forma más sencilla, desde una página y sin tocar código. También incluye un chat global para compartir con otros usuarios y un apartado para dejar sugerencias.",
+            },
+          ].map((project) => (
+            <article className={styles.projectCard} key={project.title}>
+              <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Visitar ${project.title}`}>
+                <img className={styles.projectPreview} src={project.image} alt={`Vista previa de ${project.title}`} loading="lazy" width={1440} height={900} />
+              </a>
+              <div className={styles.projectContent}>
+                <h3 className={styles.cardTitle}>{project.title}</h3>
+                <p className={styles.cardText}>{project.text}</p>
+                <a className={styles.projectLink} href={project.href} target="_blank" rel="noreferrer">Visitar página <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {categories.filter((c) => c.display !== false).map((category) => (
         <section className={styles.section} key={category.title}>
           <div className={styles.sectionHeader}>

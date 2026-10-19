@@ -5,7 +5,7 @@ const person: Person = {
   lastName: "",
   name: "Santiago",
   role: "Desarrollador",
-  avatar: "/images/profile/logo.gif",
+  avatar: "/images/profile/avatar.png",
   email: "santiagomendozacordero@gmail.com",
   location: "America/Buenos_Aires",
   languages: ["Español"],
@@ -54,13 +54,13 @@ const home: Home = {
   path: "/",
   image: "/api/og/generate",
   label: "Inicio",
-  title: "Portafolio-Santiivlog",
+  title: "SantiagoDev | Mods, bots de Discord y desarrollo web",
   description: `Portafolio de ${person.name}, ${person.role}`,
   headline: <>Creando mods, bots y experiencias web</>,
   featured: {
     display: false,
     title: <>Proyecto destacado</>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work",
   },
   subline: (
     <>
@@ -127,6 +127,8 @@ const about: About = {
         tags: [
           { name: "Fabric", icon: "" },
           { name: "Forge", icon: "" },
+          { name: "Spigot", icon: "" },
+          { name: "Paper", icon: "" },
         ],
         images: [],
       },
@@ -151,6 +153,21 @@ const about: About = {
           { name: "Tailwind", icon: "" },
           { name: "HTML", icon: "" },
         ],
+        images: [],
+      },
+      {
+        title: "Bots de Discord",
+        description: <>Desarrollo de bots y paneles de administración para Discord.</>,
+        tags: [
+          { name: "Discord.js", icon: "" },
+          { name: "Node.js", icon: "" },
+        ],
+        images: [],
+      },
+      {
+        title: "Bases de datos",
+        description: <>Almacenamiento y gestión de datos para mis proyectos.</>,
+        tags: [{ name: "Supabase", icon: "" }],
         images: [],
       },
       {

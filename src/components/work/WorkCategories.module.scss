@@ -6,6 +6,59 @@
   padding: 96px 0 48px;
 }
 
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.projectCard {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 12px;
+  background: var(--neutral-alpha-weak);
+}
+
+.projectPreview {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--neutral-alpha-weak);
+}
+
+.projectContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  gap: 20px;
+  padding: 24px;
+}
+
+.projectLink {
+  margin-top: auto;
+  padding: 10px 16px;
+  border: 1px solid var(--brand-alpha-medium);
+  border-radius: 999px;
+  background: var(--brand-alpha-weak);
+  color: var(--brand-on-background-medium);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.projectCard a:focus-visible {
+  outline: 2px solid var(--brand-on-background-medium);
+  outline-offset: -3px;
+}
+
+@media (max-width: 700px) {
+  .projectGrid { grid-template-columns: minmax(0, 1fr); }
+}
+
 .hero {
   margin-bottom: 56px;
   text-align: center;

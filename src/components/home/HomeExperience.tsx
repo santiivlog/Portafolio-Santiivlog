@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from "@once-ui-system/core";
+import { useState } from "react";
 import styles from "./HomeExperience.module.scss";
 
 const communities = [
@@ -19,15 +20,6 @@ const communities = [
     image: "/images/communities/cherryFull.png",
     links: [{ name: "Twitter", icon: "twitter", href: "https://x.com/CherryEventsMC" }],
   },
-  {
-    title: "SV Studio",
-    text: "SV Studio Director y Fundador del studio se dedica ala creacion de eventos en minecraft",
-    image: "/images/communities/sv-studio.png",
-    links: [
-      { name: "Twitter", icon: "twitter", href: "https://x.com/SV_Studio_MC" },
-      { name: "Discord", icon: "discord", href: "https://discord.gg/KdHGK7XrE" },
-    ],
-  },
 ];
 
 function AnimatedLink({ name, icon, href }: { name: string; icon: string; href: string }) {
@@ -42,6 +34,7 @@ function AnimatedLink({ name, icon, href }: { name: string; icon: string; href: 
 }
 
 export function HomeExperience() {
+  const [activeCommunity, setActiveCommunity] = useState(0);
   return (
     <main className={`${styles.home} ${styles.classicHome}`}>
       <section className={styles.classicHero}>
@@ -71,7 +64,7 @@ export function HomeExperience() {
             <div className={styles.heroAvatarRing}>
               <img
                 className={styles.heroAvatarImg}
-                src="/images/profile/logo.gif"
+                src="/images/profile/avatar.png"
                 alt="SantiagoDev"
               />
             </div>
@@ -79,17 +72,28 @@ export function HomeExperience() {
         </div>
       </section>
 
-      <section className={styles.spotifySection}>
-        <iframe
-          src="https://open.spotify.com/embed/playlist/7Am9E2wbUBfMM9qdqGHVUt?utm_source=generator&theme=0"
-          width="100%"
-          height="352"
-          allowFullScreen
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          title="Playlist de SantiagoDev"
-          className={styles.spotifyIframe}
-        />
+      <section className={styles.section} aria-labelledby="pricing-title">
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle} id="pricing-title">Servicios y precios</h2>
+          <span className={styles.sectionMeta}>Proyectos a tu medida</span>
+        </div>
+        <div className={styles.pricingTableWrap}>
+          <table className={styles.pricingTable} aria-labelledby="pricing-title" aria-describedby="pricing-note">
+            <thead>
+              <tr><th scope="col">Servicio</th><th scope="col">Precio inicial</th><th scope="col">Detalles</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Bots de Discord</th>
+                <td>Desde $10</td>
+                <td>Configura y administra tu bot desde <a href="https://panelvyx.vercel.app/#comunidad" target="_blank" rel="noreferrer">MultiPanel ↗</a></td>
+              </tr>
+              <tr><th scope="row">Páginas web</th><td>Desde $20</td><td>Precio ajustable según tu proyecto.</td></tr>
+              <tr><th scope="row">Mods de Minecraft</th><td>Desde $15</td><td>Precio ajustable según las funciones que necesites.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p className={styles.pricingNote} id="pricing-note">Estos precios pueden subir o bajar dependiendo de lo que requieras. Siempre intentaré ajustarme al presupuesto de mis clientes.</p>
       </section>
 
       <section className={styles.section}>
@@ -98,10 +102,20 @@ export function HomeExperience() {
           <span className={styles.sectionMeta}>Colaboraciones y comunidades</span>
         </div>
         <div className={styles.communityGrid}>
-          {communities.map((community) => (
-            <article className={styles.communityCard} key={community.title}>
-              <img className={styles.communityImage} src={community.image} alt={community.title} />
-              <div className={styles.communityContent}>
+          {communities.map((community, index) => (
+            <article className={`${styles.communityCard} ${activeCommunity === index ? styles.communityActive : ""}`} key={community.title}>
+              <button
+                className={styles.communityToggle}
+                type="button"
+                aria-expanded={activeCommunity === index}
+                aria-controls={`community-details-${index}`}
+                aria-label={`Ver información de ${community.title}`}
+                onClick={() => setActiveCommunity(index)}
+              >
+                <img className={styles.communityImage} src={community.image} alt={community.title} />
+                <span className={styles.communityHint}>{activeCommunity === index ? "Seleccionado" : "Ver comunidad"} <span aria-hidden="true">↗</span></span>
+              </button>
+              <div className={styles.communityContent} id={`community-details-${index}`} hidden={activeCommunity !== index}>
                 <h3 className={styles.cardTitle}>{community.title}</h3>
                 <p className={styles.cardText}>{community.text}</p>
                 <div className={styles.communityLinks}>
